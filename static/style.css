@@ -1,0 +1,17 @@
+body {
+    background-color: lightblue;
+    color: rgb(20, 15, 15);
+}
+
+h1 {
+    color: black;
+}
+
+textarea {
+    background-color: powderblue;
+    color: rgb(20, 20, 20);
+}
+
+pre {
+    color: black;
+}
