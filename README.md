@@ -1,91 +1,197 @@
-# ASCII-Art-Web-Stylize
+# 🎨 ASCII Art Web Stylize
 
-An extension of [ascii-art-web](https://acad.learn2earn.ng/git/dodumu/ascii-art-web) that transforms the plain HTTP-based ASCII art generator into a **visually appealing, responsive, and user-friendly** web experience through the addition of CSS.
+A responsive web application built with **Go** that converts plain text into ASCII art using different banner styles. This project enhances the original **ASCII Art Web** by adding a clean, modern, and responsive user interface.
 
-## 📖 About
+---
 
-This project builds on the original `ascii-art-web` server, which converts user-submitted text into ASCII art using different banner styles (`standard`, `shadow`, `thinkertoy`). While the original focused purely on functionality, **ascii-art-web-stylize** focuses on the *human-computer interface* — making the site pleasant to look at, easy to navigate, and consistent across devices.
+## 📚 Table of Contents
 
-## ✨ Goals
+* [Overview](#-overview)
+* [Features](#-features)
+* [Demo](#-demo)
+* [Technology Stack](#-technology-stack)
+* [Project Structure](#-project-structure)
+* [Getting Started](#-getting-started)
+* [Usage](#-usage)
+* [Application Flow](#-application-flow)
+* [HTTP Status Codes](#-http-status-codes)
+* [Future Improvements](#-future-improvements)
+* [Author](#-author)
+* [License](#-license)
 
-- Make the interface **appealing, interactive, and intuitive**
-- Improve **user feedback** (loading states, error messages, hover effects, etc.)
-- Ensure **text readability** regardless of color choices (sufficient contrast)
-- Keep the design **consistent** across all pages and components
-- Make the layout **responsive** so it works well on desktop, tablet, and mobile
-- Add **interactivity** without breaking core functionality
+---
 
-## 🛠️ Tech Stack
+## 📖 Overview
 
-- **Backend:** Go (standard library only — `net/http`, `html/template`, etc.)
-- **Frontend:** HTML, CSS
-- **No external Go packages** — per project constraints, only the Go standard library is allowed
+ASCII Art Web Stylize is a Go web application that generates ASCII art from user input. It extends the original project with CSS styling, responsive layouts, and an improved user experience while keeping the original rendering functionality.
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
-- [Go](https://golang.org/doc/install) installed on your machine
+## ✨ Features
 
-### Installation
-```bash
-git clone https://acad.learn2earn.ng/git/dodumu/ascii-art-web-stylize
-cd ascii-art-web-stylize
-```
+* Generate ASCII art from text
+* Three banner styles:
 
-### Running the server
-```bash
-go run main.go
-```
+  * Standard
+  * Shadow
+  * Thinkertoy
+* Responsive interface
+* Custom error pages
+* Go template rendering
+* Static CSS support
+* Uses only Go's standard library
 
-Then open your browser and navigate to:
-```
+---
+
+## 🖥️ Demo
+
+Run the server and visit:
+
+```text id="xyq1pg"
 http://localhost:8080
 ```
 
-## 🎨 Usage
+---
 
-1. Enter the text you want converted into ASCII art.
-2. Choose a banner style: `standard`, `shadow`, or `thinkertoy`.
-3. Submit the form and view your styled ASCII art output.
+## 🛠 Technology Stack
+
+### Backend
+
+* Go
+* `net/http`
+* `html/template`
+
+### Frontend
+
+* HTML5
+* CSS3
+
+### Tools
+
+* Git
+* GitHub
+
+---
 
 ## 📁 Project Structure
 
-```
+```text id="4njlwm"
 ascii-art-web-stylize/
-├── main.go
-├── HomeHandler.go
-├── ErrorHandler.go
-├── ArtHandler.go
+│
+├── ascii/
+│   ├── Generate.go
+│   ├── LoadBanner.go
+│   └── Render.go
+│
 ├── banner/
 │   ├── standard.txt
 │   ├── shadow.txt
 │   └── thinkertoy.txt
-├── ascii/
-│   ├── LoadBanner.go
-│   ├── Render.go
-│   └── Generate.go
+│
+├── static/
+│   └── style.css
+│
 ├── templates/
 │   ├── base.html
 │   ├── input.html
 │   ├── output.html
 │   └── error.html
+│
+├── ArtHandler.go
+├── ErrorHandler.go
+├── HomeHandler.go
+├── main.go
+├── go.mod
 └── README.md
 ```
 
-## ✅ Status Codes
+---
 
-| Code | Meaning                              |
-|------|---------------------------------------|
-| 200  | Success — ASCII art generated         |
-| 400  | Bad request — empty or invalid input  |
-| 404  | Not found — invalid banner style/page |
-| 500  | Internal server error                 |
+## 🚀 Getting Started
 
-## 👥 Authors
+### Prerequisites
 
-- **Ooja Omale (Grace)**
+* Go 1.24 or later
+* Git
 
+### Clone the Repository
+
+```bash id="9cb6t3"
+git clone https://github.com/omalegrace2009-g/ascii-art-web-stylize.git
+cd ascii-art-web-stylize
+```
+
+### Run the Application
+
+```bash id="k1s5xa"
+go run .
+```
+
+Open:
+
+```text id="z9o3iv"
+http://localhost:8080
+```
+
+---
+
+## 🎨 Usage
+
+1. Enter your text.
+2. Select a banner style.
+3. Click **Generate**.
+4. View the generated ASCII art.
+
+---
+
+## 🔄 Application Flow
+
+```text id="xxh8fw"
+User Input
+    ↓
+HTTP Request
+    ↓
+Go Handler
+    ↓
+Generate ASCII Art
+    ↓
+Render Template
+    ↓
+Display Result
+```
+
+---
+
+## 🌐 HTTP Status Codes
+
+| Code    | Description              |
+| ------- | ------------------------ |
+| **200** | Success                  |
+| **400** | Invalid input            |
+| **404** | Page or banner not found |
+| **500** | Internal server error    |
+
+---
+
+## 🎯 Future Improvements
+
+* More banner styles
+* Dark mode
+* Copy-to-clipboard
+* Download ASCII art
+* Docker support
+* Automated testing
+
+---
+
+## 👨‍💻 Author
+
+**Ooja Omale (Grace)**
+
+GitHub: https://github.com/omalegrace2009-g
+
+---
 
 ## 📜 License
 
-This project is developed for educational purposes as part of the 01-edu curriculum.
+Developed for educational purposes as part of the **01-edu** curriculum.
