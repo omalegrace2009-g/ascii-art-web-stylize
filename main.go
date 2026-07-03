@@ -10,6 +10,11 @@ type PageData struct {
 	Result string
 }
 
+type ErrorData struct{
+	Message string
+	Status int
+}
+
 func main() {
 	serve:= http.Dir("static/")
 	get := http.StripPrefix("/static/", http.FileServer(serve))

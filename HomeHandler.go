@@ -7,12 +7,12 @@ import (
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
-		http.Error(w, "Wrong Method", http.StatusMethodNotAllowed)
+		ErrorHandler(w, "Wrong Method", http.StatusMethodNotAllowed)
 		return
 	}
 
 	if r.URL.Path != "/" {
-		http.Error(w, "Wrong URL path", http.StatusNotFound)
+		ErrorHandler(w, "Wrong URL path", http.StatusNotFound)
 		return
 	}
 
@@ -22,13 +22,13 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	)
 
 	if err != nil {
-		http.Error(w, "Error Parsing Template", http.StatusInternalServerError)
+		ErrorHandler(w, "Error Parsing Template", http.StatusInternalServerError)
 		return
 	}
 
 	err = tmpl.Execute(w, nil)
 	if err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		ErrorHandler(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 }

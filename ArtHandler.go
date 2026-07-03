@@ -8,7 +8,7 @@ import (
 
 func ArtHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, "Wrong Method", http.StatusMethodNotAllowed)
+		ErrorHandler(w, "Wrong Method", http.StatusMethodNotAllowed)
 		return
 	}
 
@@ -16,14 +16,14 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 	banner := r.FormValue("banner")
 
 	if text == "" {
-		http.Error(w, "Bad Request", http.StatusBadRequest)
+		ErrorHandler(w, "Bad Request", http.StatusBadRequest)
 		return
 	}
 
 	file := "banner/" + banner + ".txt"
 	Lban, err := ascii.LoadBanner(file)
 	if err != nil {
-		http.Error(w, "Error Loading Banner", http.StatusInternalServerError)
+		ErrorHandler(w, "Error Loading Banner", http.StatusInternalServerError)
 		return
 	}
 
@@ -38,13 +38,13 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 	)
 
 	if err != nil {
-		http.Error(w, "Error Parsing Template", http.StatusInternalServerError)
+		ErrorHandler(w, "Error Parsing Template", http.StatusInternalServerError)
 		return
 	}
 
 	err = tmpl.Execute(w, data)
 	if err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		ErrorHandler(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 }
