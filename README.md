@@ -117,7 +117,7 @@ ascii-art-web-stylize/
 ### Clone the Repository
 
 ```bash id="9cb6t3"
-git clone https://github.com/omalegrace2009-g/ascii-art-web-stylize.git
+git clone https://github.com/OmaleGrace/ascii-art-web-stylize.git
 cd ascii-art-web-stylize
 ```
 
@@ -188,7 +188,7 @@ Display Result
 
 **Ooja Omale (Grace)**
 
-GitHub: https://github.com/omalegrace2009-g
+GitHub: https://github.com/OmaleGrace
 
 ---
 
